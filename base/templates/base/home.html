@@ -3,11 +3,13 @@
 {% block content %}
 <h1>Welcome Home<h1>
 
-    {% for room in rooms %}
-    <div>
-        {{room}}
-        <span> @{{room.host.username}}</span>
 
+    <a href="{% url 'create-room' %}">Create Room </a>
+    {% for room in rooms %}
+   
+    <div>
+
+       <span> @{{room.host.username}}</span>
        <h5> <a href=" {% url 'room' room.id %}" >{{room.id}}--{{room.name}} </a></h5>
        <small>{{room.topic.name}}</small>
        <hr>

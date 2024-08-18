@@ -12,4 +12,15 @@
   </form>
 </div>
 
+
+{% comment %} {% if request.method == 'POST' %} {% endcomment %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% comment %} {% endif %} {% endcomment %}
+
 {% endblock content %}

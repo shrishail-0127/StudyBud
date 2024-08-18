@@ -1,21 +1,18 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StudyBud</title>
-</head>
-<body>
-    
-    {% extends "navbar.html" %}
+  </head>
+  <body>
+    {% extends "navbar.html" %} {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
 
-    {% block content %}
-    
-    
-    {% endblock content %}
+      <li>{{message}}</li>
 
-
-    
-    
-
-</body>
+      {% endfor %}
+    </ul>
+    {% endif %} {% block content %} {% endblock content %}
+  </body>
 </html>

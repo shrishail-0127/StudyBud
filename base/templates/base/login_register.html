@@ -1,26 +1,41 @@
-{% extends 'main.html' %} {% block content %}
+{% extends 'main.html' %}
 
+{% block content %}
+
+{% if page == 'login' %}
 <div>
+  <h2>Login</h2>
   <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
-    <label>username: </label>
-    <input type="text" name="username" placeholder="Enter username" />
-    <label>Password : </label>
-    <input type="password" name="password" placeholder="Enter password" />
-
+    <label>Username: </label>
+    <input type="text" name="username" placeholder="Enter username" required />
+    <label>Password: </label>
+    <input type="password" name="password" placeholder="Enter password" required />
     <input type="submit" value="Login" />
   </form>
+  <p>Haven't registered yet?</p>
+  <a href="{% url 'register' %}">Sign Up</a>
 </div>
 
+{% elif page == 'register' %}
+<div>
+  <h2>Register</h2>
+  <form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Register" />
+  </form>
+  <p>Already registered?</p>
+  <a href="{% url 'login' %}">Login</a>
+</div>
+{% endif %}
 
-{% comment %} {% if request.method == 'POST' %} {% endcomment %}
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-danger">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
-{% comment %} {% endif %} {% endcomment %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
 
 {% endblock content %}

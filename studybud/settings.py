@@ -26,7 +26,13 @@ SECRET_KEY = "django-insecure-y&m93&-9wh*yu1mgx-!n6rf@a@lm=q3i$=s(jqfxk_^zf5ya$d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0.1", "localhost", "127.0.0.1", "[::1]", "studybuddy-g9jg.onrender.com"]
+ALLOWED_HOSTS = ["0.0.0.0.1", "localhost", "127.0.0.1", "studybuddy-g9jg.onrender.com"]
+
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = ['https://studybuddy-g9jg.onrender.com/login/']
 
 
 # Application definition

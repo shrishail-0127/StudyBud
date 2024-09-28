@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["0.0.0.0.1", "localhost", "127.0.0.1", "studybuddy-g9jg.onrender.com"]
 
-SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
